@@ -1,0 +1,82 @@
+<playmobile>
+    <version>v1.0.0</version>
+    <playerlist>
+        <category>Rap</category>
+        <description>All Rap Music</description>
+        <track>
+            <title>Empire State of Mind - Jay Z ft Alicia Keys</title>
+            <url>mp3/state_mind.mp3</url>
+        </track>
+	    <track>
+            <title>Unstoppable - BY M I</title>
+            <url>mp3/mi_unstoppable.mp3</url>
+        </track>
+	    <track>
+            <title>Undisputed Champion - By M I </title>
+            <url>mp3/mi_undisputed.mp3</url>
+        </track>
+    </playerlist>
+    
+    <playerlist>
+        <category>Jazz</category>
+        <description>For the lover of classical</description>
+        <track>
+            <title>Ultimate - By Yanni</title>
+            <url></url>
+        </track>
+	    <track>
+            <title>Passion - By Yanni</title>
+            <url></url>
+        </track>
+    </playerlist>
+    <playerlist>
+        <category>Soul / R  B</category>
+        <description>Get the cool of the night</description>
+        <track>
+            <title>Unbreak - Celine Dion</title>
+            <url></url>
+        </track>
+        <track>
+            <title>Best of Love - Moz XOD</title>
+            <url></url>
+        </track>
+    </playerlist>
+    <playerlist>
+        <category>Pop / Rock</category>
+        <description>Party Mode Activated</description>
+        <track>
+            <title>Give me Everything - Pitbull ft. Neyo</title>
+            <url>mp3/pitbull_everything.mp3</url>
+        </track>
+        <track>
+            <title>Rain Over Me - Pitbull ft. Marc Anthony</title>
+            <url>mp3/pitbull_rainover.mp3</url>
+        </track>
+    </playerlist>
+	
+    <playerlist>
+    <category>Country</category>
+    <description>Country Side Music</description>
+    <track>
+        <title>Testing - One</title>
+        <url></url>
+    </track>
+    <track>
+        <title>Testing - Two</title>
+        <url></url>
+    </track>
+</playerlist>
+
+<playerlist>
+    <category>Christian  Gospel</category>
+    <description>In love for God</description>
+    <track>
+        <title>Lifesong - By Casting Crowns</title>
+        <url>mp3/lifesong.mp3</url>
+    </track>
+    <track>
+        <title>While you were sleeping - By Casting Crowns</title>
+        <url>mp3/while_sleeping.mp3</url>
+    </track>
+</playerlist>
+</playmobile>
