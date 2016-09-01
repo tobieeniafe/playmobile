@@ -4,10 +4,11 @@
 		<meta charset="utf-8">
 		<title>PlayMobile - Jquerymobile MP3 Player</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 		
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script type="text/javascript" src="js/playall.js"></script>
+
 </head>
 <body>
   <!--The Page for list all playerlist-->
@@ -24,9 +25,10 @@
 			<div data-role="footer" data-position="fixed" data-id="footernav">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="index.php" rel="external">Home</a></li>
-						<li><a href="#listTracks" class="ui-btn-active ui-state-persist">Play All</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="index.php" rel="external" data-icon='home' data-role='button'>Home</a></li>
+						<li><a href="#listTracks" class="ui-btn-active ui-state-persist" data-icon='audio' data-role='button'>Play All</a></li>
+						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
+						<li><a href="login.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>
@@ -35,3 +37,14 @@
        <audio id="aud"></audio>
 	</body>
 </html>
+
+
+
+
+ <!-- intrnal links 
+
+		<link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src='jquery.mobile-1.4.5.min.js'></script>
+		<script type="text/javascript" src='jquery-3.1.0.min.js'></script>
+
+		 end of intrnal links -->
