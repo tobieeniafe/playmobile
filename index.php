@@ -4,10 +4,11 @@
 		<meta charset="utf-8">
 		<title>PlayMobile - Jquerymobile MP3 Player</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/playmobile.js"></script>
+       
 	</head>
 	<body>
     	<!--The homepage listing all the categories-->
@@ -25,9 +26,10 @@
 			<div data-role="footer" data-position="fixed" data-id="footernav">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#Home" class="ui-btn-active ui-state-persist">Home</a></li>
-						<li><a href="playerlist.php" rel="external" id="listTracks">Play All</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
+						<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
+						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
+						<li><a href="user.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>
@@ -48,9 +50,10 @@
 			<div data-role="footer" data-position="fixed" data-id="footernav">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#Home" class="ui-btn-active ui-state-persist">Home</a></li>
-						<li><a href="playerlist.php" rel="external" id="listTracks">Play All</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
+						<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
+						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
+						<li><a href="user.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>
@@ -70,9 +73,10 @@
 		<div data-role="footer" data-position="fixed" data-id="footernav">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#Home">Home</a></li>
-						<li><a href="playerlist.php" rel="external" id="listTracks">Play All</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
+						<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
+						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
+						<li><a href="user.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>
@@ -82,3 +86,4 @@
 		<audio id="aud"></audio>
 	</body>
 </html>
+
