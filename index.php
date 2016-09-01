@@ -29,7 +29,7 @@
 						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
 						<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
 						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-						<li><a href="user.php" data-icon='cloud' data-role='button'>Upload</a></li>
+						<li><a href="login.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
 						<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
 						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-						<li><a href="user.php" data-icon='cloud' data-role='button'>Upload</a></li>
+						<li><a href="login.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>
@@ -76,7 +76,7 @@
 						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
 						<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
 						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-						<li><a href="user.php" data-icon='cloud' data-role='button'>Upload</a></li>
+						<li><a href="login.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>

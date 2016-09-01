@@ -1,40 +1,32 @@
 <?php
-/* session_start();
-	if (condition) {
-	$_SESSION['playmobile'] = 'true';
-	header('location:admin.php');
-		}
-		else{
-			header('location:login.php');
-		}
-session_destroy(); */
-		
-	
-$message = '';
-if ($_POST) {
-	
-	$user = 'root';
-	$pass ='';
-	$db = 'playmobile';
-	$conn = mysqli_connect('localhost', $user, $pass, $db ) or die( "unable to connect");
-
-	$username = $_POST["username"]; //admin
-	$password = $_POST['password']; //admin
-
-	$query = "SELECT * from users where username = '$username' and password = '$password' ";
-	$result = mysqli_query($conn,$query);
-
-	if (mysqli_num_rows($result) ==  1) 
-	{
-		session_start();
-		$_SESSION['playmobile'] = 'true';
+	$message = '';
+	session_start();
+	if ($_SESSION['playmobile']) {
 		header('location:admin.php');
 	}
 	else{
-		 $message = 'Invalid Username or Password';
+		session_destroy(); 
 	}
-}
 
+ if ($_POST) {
+ 	$host = 'localhost';
+ 	$user = 'root';
+ 	$pass = '';
+ 	$db = 'playmobile';
+ 	$username = $_POST['username'];
+ 	$password = $_POST['password'];
+ 	$conn = mysqli_connect($host,$user,$pass,$db);
+ 	$query = "SELECT * from users where username='$username' and password='$password' ";
+ 	$result = mysqli_query($conn,$query);
+ 		if (mysqli_num_rows($result) == 1) {
+ 			session_start();
+ 			$_SESSION['playmobile'] = 'true';
+ 			header('location: admin.php');
+ 		}
+ 		else {
+ 			$message = "Invalid username or password ";
+ 		}
+ }
 
 ?>
 
@@ -58,25 +50,19 @@ if ($_POST) {
 			</div>
             
     
-			<div align="center" id="login" class="form" style=" width:400px; margin:auto;">
-			<form action="" method="post" class="form">
-				<h2>Sign In</h2>
-				<p><input class="input" type="text" name="username" required="" placeholder="Username"></p>
-				<p><input class="input" type="password" name="password" required="" placeholder="Password"></p>
-				<p><input type="submit" name="submit" value="Sign In"></p>
-			</form>
-			<?php 
-				echo $message;
-			?>
-			
-			</div>
+	<div align="center" id="login" class="form" style="min-width: 300; width:400px; margin:auto;">
+	<form method="post">
+	<h2>Sign In</h2>
+		<p><input type="text" name="username" required="" placeholder="USERNAME"></p>
+		<p><input type="password" name="password" required="" placeholder="PASSWORD"></p>
+		<p><input type="submit" name="submit" value="SIGN IN"></p>
+	</form>
+		<?php 
+			echo $message;
+		?>
+	</div>
 
-	
-            
 		</div>
-
-        
-
 
 </body>
 </html>
