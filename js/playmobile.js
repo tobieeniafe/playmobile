@@ -50,10 +50,12 @@ function play(url){
 function pause(){
 	  if(this.aud.paused){
 		this.setButton('pause');
+		document.getElementById('play').innerHTML = 'Pause'; // change the text when paused 
 		this.aud.play();
 	}else{
 		this.aud.pause();
 		this.setButton('play');
+		document.getElementById('play').innerHTML = 'Play'; // change the text when playing
 	}	
  }
   

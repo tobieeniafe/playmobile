@@ -1,4 +1,4 @@
-var XML_PATH = "xml/mp3.xml"
+ var XML_PATH = "xml/mp3.xml"
 			var aud;
 			var XML;
 			$(document).ready(function(){
@@ -33,14 +33,16 @@ function pause(){
 	  if(this.aud.paused){
 		this.setButton('pause');
 		this.aud.play();
+		document.getElementById('play').innerHTML = 'Pause'; // change the text when paused 
 	}else{
 		this.aud.pause();
 		this.setButton('play');
+		document.getElementById('play').innerHTML = 'Play'; // change the text when playing 
 	}	
   }
-  //Change the play and pause text dynamically
+  //Change the play and pause function dynamically
  function setButton(t) {
-	var $button = $('.playmobile-playpause .ui-btn-text');
+	var $button = $('.playmobile-playpause .ui-btn-right');
 	switch(t){
 		case 'pause':
 			$button.text('Pause');
@@ -51,3 +53,5 @@ function pause(){
 	}
 	return this;
   }
+
+ 

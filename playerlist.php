@@ -15,8 +15,9 @@
 		<div data-role="page" id="listTracks" data-add-back-btn="true">
 			<div data-role="header" data-theme="b">
 				<h1 id="catHeader">PlayMobile</h1>
-				<a onclick="pause()" href="#" class="playmobile-playpause ui-btn-right" data-role="button">Pause</a>
-			</div>
+				<a onclick="pause();" href="#" class="playmobile-playpause ui-btn-right" data-role="button" id="play">Pause</a>
+
+			</div> 
 			<div data-role="content">			
 				<ul id="playerlistContent" data-role="listview" data-inset="true">
 				</ul>
@@ -28,7 +29,7 @@
 						<li><a href="index.php" rel="external" data-icon='home' data-role='button'>Home</a></li>
 						<li><a href="#listTracks" class="ui-btn-active ui-state-persist" data-icon='audio' data-role='button'>Play All</a></li>
 						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-						<li><a href="login.php" data-icon='cloud' data-role='button'>Upload</a></li>
+						<li><a href="admin.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>

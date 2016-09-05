@@ -16,7 +16,7 @@
 			<div data-role="header" data-theme="b"> 
 				<a href="#aboutPage" data-role="button" data-icon="info">About</a>
 				<h1>PlayMobile</h1> 
-				<a onclick="pause()" href="#" class="playmobile-playpause ui-btn-right" data-role="button">pause</a>
+				<a onclick="pause();" href="#" class="playmobile-playpause ui-btn-right" data-role="button" id="play">Pause</a>
 			</div>
             <div data-role="content" >
 				<ul id="songlist" data-role="listview" data-inset="true">
@@ -29,7 +29,7 @@
 						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
 						<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
 						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-						<li><a href="login.php" data-icon='cloud' data-role='button'>Upload</a></li>
+						<li><a href="admin.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>
@@ -39,8 +39,8 @@
 		<div data-role="page" id="listPage" data-add-back-btn="true">
 			<div data-role="header" data-theme="b">
 				<a href="#Home" data-role="button" data-icon="home">Home</a>
-				<h1 id="catHeader"></h1>
-				<a onclick="pause()" href="#" class="playmobile-playpause ui-btn-right" data-role="button">Pause</a>
+				<h1>PlayMobile</h1>
+				<a onclick="pause();" href="#" class="playmobile-playpause ui-btn-right" data-role="button" id="play">Pause</a>
 			</div>
 			<div data-role="content">			
 				<ul id="playerlistContent" data-role="listview" data-inset="true">
@@ -53,7 +53,7 @@
 						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
 						<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
 						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-						<li><a href="login.php" data-icon='cloud' data-role='button'>Upload</a></li>
+						<li><a href="admin.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 			<div data-role="header" data-theme="b"> 
 				<a href="#Home" data-role="button" data-icon="home">Home</a>
 				<h1>About PlayMobile</h1> 
-				<a onclick="pause()" href="#" class="playmobile-playpause ui-btn-right" data-role="button">Pause</a>
+				<a onclick="pause();" href="#" class="playmobile-playpause ui-btn-right" data-role="button" id="play">Pause</a>
 			</div>
 			<p>PlayMobile is a jquerymobile audio player for playing files from an xml list. You can use it as a standalone project or application.</p>
 		</div>
@@ -76,7 +76,7 @@
 						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
 						<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
 						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-						<li><a href="login.php" data-icon='cloud' data-role='button'>Upload</a></li>
+						<li><a href="admin.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>

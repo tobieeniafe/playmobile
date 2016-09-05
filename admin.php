@@ -8,7 +8,7 @@
 
 <?php
 //FILE UPLOAD
-$target_dir = "uploads/";
+$target_dir = "mp3/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $filetype = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -125,10 +125,11 @@ if ($uploadOk == 0) {
   </div>
 
   <div data-role="main" class="ui-content">
+  		<h3>Select file to Upload</h3>
   		<!-- Upload Form -->
 		<div data-role="main" class="ui-content">
 		    <div data-role="controlgroup" data-type="horizontal">
-		    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+		    <form data-ajax="false" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
 				<input type="file" name="fileToUpload" id="fileToUpload">  
 				<input  type="submit" href="#" class="ui-btn" value="Upload file" name="submit" >
 			</form>

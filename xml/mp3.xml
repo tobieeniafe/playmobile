@@ -1,11 +1,11 @@
 <playmobile>
-    <version>v1.0.0</version>
+    <version>v1.0.1</version>
     <playerlist>
-        <category>Rap</category>
-        <description>All Rap Music</description>
+        <category>Afro</category>
+        <description>All Af Music</description>
         <track>
-            <title>Empire State of Mind - Jay Z ft Alicia Keys</title>
-            <url>mp3/state_mind.mp3</url>
+            <title>Dem Dey Go - Brymo</title>
+            <url>mp3/demdeygo.mp3</url>
         </track>
 	    <track>
             <title>Unstoppable - BY M I</title>
