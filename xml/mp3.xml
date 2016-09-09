@@ -5,15 +5,15 @@
         <description>All Af Music</description>
         <track>
             <title>Dem Dey Go - Brymo</title>
-            <url>mp3/demdeygo.mp3</url>
+            <url>uploads/demdeygo.mp3</url>
         </track>
 	    <track>
             <title>Unstoppable - BY M I</title>
-            <url>mp3/mi_unstoppable.mp3</url>
+            <url></url>
         </track>
 	    <track>
             <title>Undisputed Champion - By M I </title>
-            <url>mp3/mi_undisputed.mp3</url>
+            <url></url>
         </track>
     </playerlist>
     
@@ -46,11 +46,11 @@
         <description>Party Mode Activated</description>
         <track>
             <title>Give me Everything - Pitbull ft. Neyo</title>
-            <url>mp3/pitbull_everything.mp3</url>
+            <url></url>
         </track>
         <track>
             <title>Rain Over Me - Pitbull ft. Marc Anthony</title>
-            <url>mp3/pitbull_rainover.mp3</url>
+            <url></url>
         </track>
     </playerlist>
 	
@@ -72,11 +72,11 @@
     <description>In love for God</description>
     <track>
         <title>Lifesong - By Casting Crowns</title>
-        <url>mp3/lifesong.mp3</url>
+        <url></url>
     </track>
     <track>
         <title>While you were sleeping - By Casting Crowns</title>
-        <url>mp3/while_sleeping.mp3</url>
+        <url></url>
     </track>
 </playerlist>
 </playmobile>

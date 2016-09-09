@@ -29,7 +29,6 @@
 						<li><a href="index.php" rel="external" data-icon='home' data-role='button'>Home</a></li>
 						<li><a href="#listTracks" class="ui-btn-active ui-state-persist" data-icon='audio' data-role='button'>Play All</a></li>
 						<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-						<li><a href="admin.php" data-icon='cloud' data-role='button'>Upload</a></li>
 					</ul>
 				</div>
 			</div>
