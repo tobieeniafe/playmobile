@@ -23,7 +23,7 @@
 				</ul>
 			</div>
              <!--Start footer section-->
-			<div data-role="footer" data-position="fixed" data-id="footernav">
+			<div data-role="footer" data-position="fixed" data-id="footernav" data-theme="b">
 				<div data-role="navbar">
 					<ul>
 						<li><a href="index.php" rel="external" data-icon='home' data-role='button'>Home</a></li>
@@ -37,14 +37,3 @@
        <audio id="aud"></audio>
 	</body>
 </html>
-
-
-
-
- <!-- intrnal links 
-
-		<link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.min.css">
-		<script type="text/javascript" src='jquery.mobile-1.4.5.min.js'></script>
-		<script type="text/javascript" src='jquery-3.1.0.min.js'></script>
-
-		 end of intrnal links -->

@@ -8,7 +8,7 @@ if(isset($_POST['btn-upload']))
     $file_size = $_FILES['file']['size'];
     $file_type = $_FILES['file']['type'];
     $category = $_POST['category'];
-    $description = $_POST['description'];
+    // $description = $_POST['description'];
     $folder= "uploads/";
     
     // new file size in KB
@@ -16,12 +16,17 @@ if(isset($_POST['btn-upload']))
 
     $new_file_name = $file;
     
-    $title=str_replace('_',' ',$new_file_name);
+    $new_name=str_replace('_',' ',$new_file_name);
+    $title=str_replace('-',' ',$new_name);
     
     if(move_uploaded_file($file_loc,$folder.$title))
     {
-        $sql="INSERT INTO tbl_uploads(category , description, title ,url) VALUES('$category','$description','$title','$url')";
+        $sql = "INSERT INTO playlists (title, category_id, url) VALUES ('$title', '$category' ,'uploads/$title')";
         mysql_query($sql);
+
+        // $sql = "INSERT INTO tbl_uploads(category , description, title ,url) VALUES('$category','$description','$title','$url')";
+        // mysql_query($sql);
+
         ?>
         <script>
         alert('successfully uploaded');
@@ -34,7 +39,7 @@ if(isset($_POST['btn-upload']))
         ?>
         <script>
         alert('error while uploading file');
-        window.location.href='admin.php';
+        window.location.href='admin.php#upload';
         </script>
         <?php
     }

@@ -23,7 +23,7 @@
 				</ul>
             </div>
             <!--Start footer section-->
-			<div data-role="footer" data-position="fixed" data-id="footernav">
+			<div data-role="footer" data-position="fixed" data-id="footernav" data-theme="b">
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
@@ -46,7 +46,7 @@
 				</ul>
 			</div>
              <!--Start footer section-->
-			<div data-role="footer" data-position="fixed" data-id="footernav">
+			<div data-role="footer" data-position="fixed" data-id="footernav" data-theme="b">
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#Home" data-icon='home' data-role='button'>Home</a></li>
