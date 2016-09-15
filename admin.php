@@ -11,9 +11,6 @@ include_once 'dbconfig.php';
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -128,14 +125,14 @@ include_once 'dbconfig.php';
     </tr>
 
     <?php
-	$sql="SELECT * FROM playlists";
-	$result_set=mysql_query($sql);
-	while($row=mysql_fetch_array($result_set))
+	$sql = "SELECT * FROM playlists";
+	$result_set=mysqli_query($conn, $sql);
+	while($row=mysqli_fetch_array($result_set))
 
 	{ $url = "uploads/".$row['title'] ;
         $title = $row['title'] ;
         $sql="UPDATE `tbl_uploads` SET `url`='$url' WHERE title='$title' ";
-        mysql_query($sql);
+        mysqli_query($conn, $sql);
 		?>
         <tr>
         <td><?php echo $row['title'] ?></td>

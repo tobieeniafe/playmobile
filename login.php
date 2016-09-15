@@ -10,9 +10,9 @@
 
  if ($_POST) {
  	$host = 'localhost';
- 	$user = 'root';
- 	$pass = '';
- 	$db = 'playmobile';
+ 	$user = 'stanley';
+ 	$pass = 'warri';
+ 	$db = 'products_playmobile';
  	$username = $_POST['username'];
  	$password = $_POST['password'];
  	$conn = mysqli_connect($host,$user,$pass,$db);
