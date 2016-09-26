@@ -5,18 +5,11 @@
 
 
 <?php  
+include_once 'dbconfig.php';
 
-$config['mysql_host'] = "localhost";
-$config['mysql_user'] = "root";
-$config['mysql_pass'] = "";
-$config['db_name']    = "playmobile";
 $config['playlists_table'] = "playlists";  
 $config['categories_table'] = "categories";	
 
-//connect to host
-mysql_connect($config['mysql_host'],$config['mysql_user'],$config['mysql_pass']);
-//select database
-@mysql_select_db($config['db_name']) or die( "Unable to select database");
 
 $root_element = 'playmobile'; 
 
@@ -27,17 +20,17 @@ $category_sql = "SELECT * FROM ".$config['categories_table'];
  
 
  //so first we will retrieve our categories
-$result1 = mysql_query($category_sql);
+$result1 = mysqli_query($conn,$category_sql);
 if (!$result1) {
-    die('Invalid query1: ' . mysql_error());
+    die('Invalid query1: ' . mysqli_error($conn));
 }
-if(mysql_num_rows($result1)>0)
+if(mysqli_num_rows($result1)>0)
 {
    
    $xml = "<$root_element>";
    $xml .= "<version>v1.0.2</version>";
 
-      while($result_array1 = mysql_fetch_assoc($result1))
+      while($result_array1 = mysqli_fetch_assoc($result1))
       {
             $xml .= "<playerlist>";
             $xml .= "<category>{$result_array1['name']}</category>";
@@ -51,14 +44,14 @@ if(mysql_num_rows($result1)>0)
 
             //this will get our playlists
             $playlist_sql = "SELECT * FROM ".$config['playlists_table']." WHERE category_id = {$result_array1['id']}";
-            $result2 = mysql_query($playlist_sql);
+            $result2 = mysqli_query($conn,$playlist_sql);
             if (!$result2) {
-                die('Invalid query2: ' . mysql_error());
+                die('Invalid query2: ' . mysqli_error($conn));
             }
-            if(mysql_num_rows($result2)>0)
+            if(mysqli_num_rows($result2)>0)
             {
 
-               while($result_array2 = mysql_fetch_assoc($result2))
+               while($result_array2 = mysqli_fetch_assoc($result2))
                {     
                   $xml .= "<track>";
                      $xml .= "<title>".cdata($result_array2['title'])."</title>";

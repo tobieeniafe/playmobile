@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2016 at 01:05 AM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Sep 26, 2016 at 12:29 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `playmobile`
@@ -26,11 +26,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `categories`
 --
 
-CREATE TABLE IF NOT EXISTS `categories` (
-`id` int(11) NOT NULL,
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
   `description` text
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `categories`
@@ -53,12 +53,12 @@ INSERT INTO `categories` (`id`, `name`, `description`) VALUES
 -- Table structure for table `playlists`
 --
 
-CREATE TABLE IF NOT EXISTS `playlists` (
-`id` int(11) NOT NULL,
+CREATE TABLE `playlists` (
+  `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `category_id` int(11) NOT NULL,
   `url` varchar(250) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `playlists`
@@ -71,7 +71,12 @@ INSERT INTO `playlists` (`id`, `title`, `category_id`, `url`) VALUES
 (4, 'Sonnie Badu   Open the flood gates.mp3', 6, 'uploads/Sonnie Badu   Open the flood gates.mp3'),
 (5, '06  Rise Up.m4a', 1, 'uploads/06  Rise Up.m4a'),
 (6, 'Beautiful Nubia  what a feelin.mp3', 1, 'uploads/Beautiful Nubia  what a feelin.mp3'),
-(7, 'don williams till the rivers all run dry.mp3', 5, 'uploads/don williams till the rivers all run dry.mp3');
+(7, 'don williams till the rivers all run dry.mp3', 5, 'uploads/don williams till the rivers all run dry.mp3'),
+(8, 'Brymo   Dem Dey Go.mp3', 2, 'uploads/Brymo   Dem Dey Go.mp3'),
+(9, 'Brymo   Happy Memories.mp3', 2, 'uploads/Brymo   Happy Memories.mp3'),
+(10, 'Black Eyed Peas Where is the love.mp3', 4, 'uploads/Black Eyed Peas Where is the love.mp3'),
+(12, '2FaceIdibia Raindrops.mp3', 3, 'uploads/2FaceIdibia Raindrops.mp3'),
+(13, 'Adekunle Gold Sade.mp3', 8, 'uploads/Adekunle Gold Sade.mp3');
 
 -- --------------------------------------------------------
 
@@ -79,7 +84,7 @@ INSERT INTO `playlists` (`id`, `title`, `category_id`, `url`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -100,13 +105,14 @@ INSERT INTO `users` (`username`, `password`) VALUES
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `playlists`
 --
 ALTER TABLE `playlists`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_cat` (`category_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_cat` (`category_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -116,12 +122,12 @@ ALTER TABLE `playlists`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `playlists`
 --
 ALTER TABLE `playlists`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Constraints for dumped tables
 --
@@ -130,7 +136,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- Constraints for table `playlists`
 --
 ALTER TABLE `playlists`
-ADD CONSTRAINT `playlists_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `playlists_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

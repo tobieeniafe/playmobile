@@ -22,10 +22,10 @@ if(isset($_POST['btn-upload']))
     if(move_uploaded_file($file_loc,$folder.$title))
     {
         $sql = "INSERT INTO playlists (title, category_id, url) VALUES ('$title', '$category' ,'uploads/$title')";
-        mysql_query($sql);
+        mysqli_query($conn, $sql);
 
         // $sql = "INSERT INTO tbl_uploads(category , description, title ,url) VALUES('$category','$description','$title','$url')";
-        // mysql_query($sql);
+        // mysqli_query($conn, $sql);
 
         ?>
         <script>

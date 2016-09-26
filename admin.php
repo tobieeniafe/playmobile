@@ -11,6 +11,9 @@ include_once 'dbconfig.php';
 ?>
 
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -125,14 +128,14 @@ include_once 'dbconfig.php';
     </tr>
 
     <?php
-	$sql = "SELECT * FROM playlists";
-	$result_set=mysqli_query($conn, $sql);
-	while($row=mysqli_fetch_array($result_set))
+	$sql="SELECT * FROM playlists";
+	$result_set=mysqli_query($conn,$sql);
+	while($row=mysqli_fetch_array($result_set,MYSQLI_ASSOC))
 
 	{ $url = "uploads/".$row['title'] ;
         $title = $row['title'] ;
         $sql="UPDATE `tbl_uploads` SET `url`='$url' WHERE title='$title' ";
-        mysqli_query($conn, $sql);
+        mysqli_query($conn,$sql);
 		?>
         <tr>
         <td><?php echo $row['title'] ?></td>
@@ -208,13 +211,10 @@ include_once 'dbconfig.php';
 
     <?php
 	$sql="SELECT * FROM categories";
-	$result_set=mysql_query($sql);
-	while($row=mysql_fetch_array($result_set))
+	$result_set=mysqli_query($conn,$sql);
+	while($row=mysqli_fetch_array($result_set,MYSQLI_ASSOC))
 
-	{ 
-        // $title = $row['title'] ;
-        // $sql="UPDATE `tbl_uploads` SET `url`='$url' WHERE title='$title' ";
-        // mysql_query($sql);
+	{
 		?>
         <tr>
         <td><?php echo $row['id'] ?></td>
@@ -246,7 +246,7 @@ include_once 'dbconfig.php';
     $cat_des = $_POST['cat_des'];
     
     $sql2 = "INSERT INTO categories (name, description) VALUES ('$cat_name','$cat_des')";
-    mysql_query($sql2); 
+    mysqli_query($conn,$sql2); 
     ?>
         <script>
         alert('category added');
