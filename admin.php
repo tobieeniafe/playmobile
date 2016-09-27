@@ -1,9 +1,9 @@
 <?php
-	// REDIRECT IF USER NOT LOGGED IN 
-	session_start();
-	if (!$_SESSION['playmobile']) {
-		header('location:login.php');
-	}
+    // REDIRECT IF USER NOT LOGGED IN 
+    session_start();
+    if (!$_SESSION['playmobile']) {
+        header('location:login.php');
+    }
 ?>
 
 <?php
@@ -11,272 +11,231 @@ include_once 'dbconfig.php';
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>PlayMobile - Admin</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script src="js/playmobile.js"></script>
-         
-	</head>
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    
+    <title>PlayMobile - Admin</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+
+</head>
+
 <body>
-	
-	
 
-	
+    <div id="wrapper">
 
-<!-- ========================  Admin homepage  ===================================== -->
-<div data-role="page" id="adminhome">
-  <div data-role="panel" id="myPanel" data-swipe-close="true" data-position-fixed="true" data-theme="b"> 
-    <h2>Menu</h2>
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="#" id="upload_files_btn">Upload Files</a></li>
 
-	    <ul data-role="listview" data-inset="true">    
-	      <li><a href="#upload">Upload Files</a></li>
-	      <li><a href="#manage">Manage Categories</a></li>
-	      <li><a href="#">Settings</a></li>
-	    </ul>
+                <li><a href="#" id="manage_categories_btn">Manage Categories</a></li>
+                
+                <li><a href="#" id="settings_btn">Settings</a></li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
-  </div> 
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
 
-  <div data-role="header"  data-theme="b">
-    <a href="#myPanel"data-role="button" data-icon="bullets">Menu</a>
-    <h1>PlayMobile - Admin</h1>
-    <a href="logout.php" data-role="button" data-icon="power" class="ui-btn-right">Logout</a>
-  </div>
+                        <h2>Welcome Admin</h2>
+                        <div class="row">
+                        <div class="col-md-1"><a href="#menu-toggle" class="btn btn-default" id="menu-toggle" style="background-color:#e6e6e6">&#9776; Menu</a></div>
+                        <div class="col-md-8"></div>
+                        <div class="col-md-1"><a href="logout.php" class="btn btn-default" style="background-color:#e6e6e6">Logout</a></div>
+                        </div>
 
-  <div data-role="main" class="ui-content">
-    <h1>Welcome Admin</h1>
-    
-  </div>
-  <!-- Footer start -->
-  <div data-role="footer" data-position="fixed" data-id="footernav" data-theme="b">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="index.php" data-icon='home' data-role='button'>Home</a></li>
-				<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
-				<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- Footer end -->
+                        
+                        <!-- UPLOAD PAGE -->
+                        <div id="upload_page" class="row">
+                                
+                            <div class="col-md-4">
+                                    <h3>Select file to Upload</h3>
+                                    <!-- Upload Form -->
+                                        
+                                        <form action="upload.php" method="post" enctype="multipart/form-data" >
+                                            <input type="file" name="file" class="form-control">
+                                            <br>
+                                            <select name="category" class="form-control">
 
-  
-</div> 
+                                                <?php
+                                                    $sql="SELECT id,name FROM `categories`";
+                                                    $result_set=mysqli_query($conn,$sql);
+                                                    while($row=mysqli_fetch_array($result_set,MYSQLI_ASSOC))
 
+                                                    { $id = $row['id'] ;
+                                                        $name = $row['name'] ;
+                                                        ?>
+                                                        
+                                                        <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                                                      
+                                                        <?php
+                                                    }
 
-<!-- ===========================   Upload page ========================= -->
+                                                ?> 
+                                                    
+                                            </select>
+                                            <br>
+                                            <input type="submit"  name="btn-upload" value="Upload" class="form-control btn btn-primary" >
+                                        </form>
+                            </div>
+                            <div class="col-md-6">
+                                        <table class="table table-responsive">
+                                            <tr>
+                                            <th>Title</th>
+                                            <th>Category ID</th>
+                                            <th>url</th>
+                                            </tr>
 
-<div data-role="page" id="upload">
-  <div data-role="panel" id="myPanel" data-swipe-close="true" data-position-fixed="true" data-theme="b"> 
-    
+                                            <?php
+                                            $sql="SELECT * FROM playlists";
+                                            $result_set=mysqli_query($conn,$sql);
+                                            while($row=mysqli_fetch_array($result_set,MYSQLI_ASSOC))
 
-	    <ul data-role="listview" data-inset="true">    
-	      <li><a href="#upload">Upload Files</a></li>
-	      <li><a href="#manage">Manage Categories</a></li>
-	      <li><a href="#">Settings</a></li>
-	    </ul>
+                                            { $url = "uploads/".$row['title'] ;
+                                                $title = $row['title'] ;
+                                                $sql="UPDATE `tbl_uploads` SET `url`='$url' WHERE title='$title' ";
+                                                mysqli_query($conn,$sql);
+                                                ?>
+                                                <tr>
+                                                <td><?php echo $row['title'] ?></td>
+                                                <td><?php echo $row['category_id'] ?></td>
+                                                <td><a href="<?php echo $url ?>" target="_blank">listen</a></td>
+                                                </tr>
+                                                <?php
+                                            }
 
-  </div> 
+                                            ?>
+                                        </table>
 
-  <div data-role="header"  data-theme="b">
-  	<a href="#myPanel"data-role="button" data-icon="bullets">Menu</a>
-    <h1>PlayMobile - Admin</h1>
-    <a href="logout.php" data-role="button" data-icon="power" class="ui-btn-right">Logout</a>
-  </div>
+                                        
 
-  <div data-role="main" class="ui-content">
+                            </div>
+                       
+                        </div>
+                        <!-- UPLOAD PAGE END -->
 
+                        <!-- MANAGE CATEGORIES PAGE -->
 
-  		<h3>Select file to Upload</h3>
-  		<!-- Upload Form -->
-		<div data-role="main" class="ui-content">
-		    <div data-role="controlgroup" data-type="horizontal">
-		    
-			<form action="upload.php" method="post" enctype="multipart/form-data" data-ajax='false'>
-				<input type="file" name="file">
+                        <div id="manage_categories_page">
+                        <div class="row">
+                           
+                           <h3>Manage Categories</h3>
 
-				<select name="category">
+                                <div class="col-md-5">
+                                <table class="table table-responsive">
+                                    <tr>
+                                    <th>ID</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    </tr>
 
-					<option name="afro" value="1">Afro</option>
-					<option name="afro pop" value="8">Afro Pop</option>
-					<option name="christian  gospel" value="6">Christian  Gospel</option>
-					<option name="country" value="5">Country</option>
-					<option name="jazz" value="2">Jazz</option>
-					<option name="pop / rock" value="4">Pop / Rock</option>
-					<option name="rap" value="9">Rap</option>
-					<option name="reggae" value="7">Reggae</option>
-					<option name="soul / r  b" value="3">Soul / R  B</option>
-						
-				</select>
-				
-				<input type="submit"  name="btn-upload" value="Upload">
-			</form>
-		    </div>
+                                    <?php
+                                    $sql="SELECT * FROM categories";
+                                    $result_set=mysqli_query($conn,$sql);
+                                    while($row=mysqli_fetch_array($result_set,MYSQLI_ASSOC))
 
-	<table cellpadding="2" border="2">
-    <tr>
-    <th>Title</th>
-    <th>Category ID</th>
-    <th>url</th>
-    </tr>
-
-    <?php
-	$sql="SELECT * FROM playlists";
-	$result_set=mysqli_query($conn,$sql);
-	while($row=mysqli_fetch_array($result_set,MYSQLI_ASSOC))
-
-	{ $url = "uploads/".$row['title'] ;
-        $title = $row['title'] ;
-        $sql="UPDATE `tbl_uploads` SET `url`='$url' WHERE title='$title' ";
-        mysqli_query($conn,$sql);
-		?>
-        <tr>
-        <td><?php echo $row['title'] ?></td>
-        <td><?php echo $row['category_id'] ?></td>
-        <td><a href="<?php echo $url ?>" target="_blank">listen</a></td>
-        </tr>
-        <?php
-
-
-	}
-
-	?>
-    </table>
-    
-
-	</div> 
-	</div>
-
-	<!-- Footer start -->
-	<div data-role="footer" data-position="fixed" data-id="footernav" data-theme="b">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="index.php" data-icon='home' data-role='button'>Home</a></li>
-				<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
-				<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- Footer end -->
-</div>
+                                    {
+                                        ?>
+                                        <tr>
+                                        <td><?php echo $row['id'] ?></td>
+                                        <td><?php echo $row['name'] ?></td>
+                                        <td><?php echo $row['description'] ?></td>
+                                        </tr>
+                                        <?php
 
 
+                                    }
 
- <?php
-    //CALL THE FUNCTION TO WRITE THE XML CODE FROM DATABASE
-   // header('location:admin.php#upload');
-	include_once 'xmlscript.php';
-	?>
-
+                                    ?>
+                                </table>
+                                </div>
 
 
+                                <h3>Add A New Category</h3>
+                                <div class="col-md-6">
+                                <form method="post" action="" data-ajax='false'>
+                                    <input class="form-control" type="text" name="cat_name" placeholder="category name">
+                                    <br>
+                                    <input class="form-control" type="text" name="cat_des" placeholder="category description">
+                                    <br>
+                                    <input class="form-control btn btn-primary" type="submit"  name="cat_add" value="Add Category">
 
+                                </form>
+                                </div>
+                                <div class="col-md-1"></div>
 
+                                <?php 
+                                if(isset($_POST['cat_add']))
+                                {
+                                $cat_name = $_POST['cat_name'];
+                                $cat_des = $_POST['cat_des'];
+                                
+                                $sql2 = "INSERT INTO categories (name, description) VALUES ('$cat_name','$cat_des')";
+                                mysqli_query($conn,$sql2); 
+                                ?>
+                                    <script>
+                                    alert('category added');
+                                    window.location.href='admin.php';
+                                    </script>
+                                <?php
+                                } 
+                                ?>
 
-<!-- ========================  Manage Categories Page  ===================================== -->
-<div data-role="page" id="manage">
-  <div data-role="panel" id="myPanel" data-swipe-close="true" data-position-fixed="true" data-theme="b"> 
-    <h2>Menu</h2>
+                        </div>
+                        </div>
 
-	    <ul data-role="listview" data-inset="true">    
-	      <li><a href="#upload">Upload Files</a></li>
-	      <li><a href="#manage">Manage Categories</a></li>
-	      <li><a href="#">Settings</a></li>
-	    </ul>
-
-  </div> 
-
-  <div data-role="header"  data-theme="b">
-    <a href="#myPanel"data-role="button" data-icon="bullets">Menu</a>
-    <h1>PlayMobile - Admin</h1>
-    <a href="logout.php" data-role="button" data-icon="power" class="ui-btn-right">Logout</a>
-  </div>
-
-  <div data-role="main" class="ui-content">
-    <h1>Manage Categories</h1>
-
-    <table cellpadding="2" border="2">
-    <tr>
-    <th>ID</th>
-    <th>Category</th>
-    <th>Description</th>
-    </tr>
-
-    <?php
-	$sql="SELECT * FROM categories";
-	$result_set=mysqli_query($conn,$sql);
-	while($row=mysqli_fetch_array($result_set,MYSQLI_ASSOC))
-
-	{
-		?>
-        <tr>
-        <td><?php echo $row['id'] ?></td>
-        <td><?php echo $row['name'] ?></td>
-        <td><?php echo $row['description'] ?></td>
-        </tr>
-        <?php
-
-
-	}
-
-	?>
-    </table>
-
-
-    <h3>Add A New Category</h3>
-	<div data-role="controlgroup" data-type="horizontal">
-    <form method="post" action="" data-ajax='false'>
-    	<input type="text" name="cat_name" placeholder="category name">
-    	<input type="text" name="cat_des" placeholder="category description">
-    	<input type="submit"  name="cat_add" value="Add Category">
-
-    </form>
-
-    <?php 
-    if(isset($_POST['cat_add']))
-    {
-    $cat_name = $_POST['cat_name'];
-    $cat_des = $_POST['cat_des'];
-    
-    $sql2 = "INSERT INTO categories (name, description) VALUES ('$cat_name','$cat_des')";
-    mysqli_query($conn,$sql2); 
-    ?>
-        <script>
-        alert('category added');
-        window.location.href='admin.php#manage';
-        </script>
-    <?php
-	} 
-	?>
-    
+                        <!-- MANAGE CATEGORIES PAGE END-->
+<p style="color:#f1f2f4; background-color:#f1f2f4"><?php
+    include_once 'xmlscript.php';
+?></p>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
 
     </div>
+    <!-- /#wrapper -->
 
     
-    
-  </div>
-  <!-- Footer start -->
-  <div data-role="footer" data-position="fixed" data-id="footernav" data-theme="b">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="index.php" data-icon='home' data-role='button'>Home</a></li>
-				<li><a href="playerlist.php" rel="external" id="listTracks" data-icon='audio' data-role='button'>Play All</a></li>
-				<li><a href="#" data-icon='user' data-role='button'>Contact</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- Footer end -->
 
-  
-</div> 
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
 
+    $(document).ready(function(){
+
+    $("#upload_files_btn").click(function(){
+        $("#upload_page").css('display','block');
+        $("#manage_categories_page").css('display','none');
+    });
+    $("#manage_categories_btn").click(function(){
+       $("#upload_page").css('display','none');
+       $("#manage_categories_page").css('display','block');
+    });
+});
+
+
+
+
+    </script>
 
 </body>
+
 </html>
