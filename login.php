@@ -1,7 +1,7 @@
 <?php
 	$message = '';
 	session_start();
-	if ($_SESSION['playmobile']) {
+	if ($_SESSION['playmobile'] == true) {
 		header('location:admin.php');
 	}
 	else{
@@ -36,33 +36,32 @@
 		<meta charset="utf-8">
 		<title>PlayMobile - Login</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/playmobile.js"></script>
-         
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
 	</head>
-<body>
-		<div data-role="page" id="header">
-			<div data-role="header" data-theme="b"> 
-				<a href="index.php" data-role="button" data-icon="home">Home</a>
-				<h1>PlayMobile</h1> 
-			</div>
+<body style="background-color:#f1f2f4">
+				
+				<div class="row">
+					<div class="col-md-1"></div>
+                    <div class="col-md-1"><a href="index.php" class="btn btn-default" style="background-color:#e6e6e6"><span class="glyphicon glyphicon-home"></span> Home</a></div>
+                </div> 
+			
             
     
 	<div align="center" id="login" class="form" style="min-width: 300; width:400px; margin:auto;">
 	<form method="post">
 	<h2>Sign In</h2>
-		<p><input type="text" name="username" required="" placeholder="USERNAME"></p>
-		<p><input type="password" name="password" required="" placeholder="PASSWORD"></p>
-		<p><input type="submit" name="submit" value="SIGN IN"></p>
+		<p><input class="form-control" type="text" name="username" required="" placeholder="USERNAME"></p>
+		<p><input class="form-control" type="password" name="password" required="" placeholder="PASSWORD"></p>
+		<p><input class="form-control btn btn-primary" type="submit" name="submit" value="SIGN IN"></p>
 	</form>
 		<?php 
 			echo $message;
 		?>
 	</div>
 
-		</div>
+	
 
 </body>
 </html>
