@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2016 at 12:29 PM
+-- Generation Time: Sep 28, 2016 at 12:26 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -45,7 +45,8 @@ INSERT INTO `categories` (`id`, `name`, `description`) VALUES
 (6, 'Christian  Gospel', 'In love for God'),
 (7, 'Reggae', 'Rasta man music'),
 (8, 'Afro Pop', 'A little here, a little there'),
-(9, 'Rap', 'Time to make your hip hop ');
+(9, 'Rap', 'Time to make your hip hop '),
+(11, 'Sample', 'Sample');
 
 -- --------------------------------------------------------
 
@@ -65,18 +66,7 @@ CREATE TABLE `playlists` (
 --
 
 INSERT INTO `playlists` (`id`, `title`, `category_id`, `url`) VALUES
-(1, 'Wizkid ft wande coal she wyne it.mp3', 8, 'uploads/Wizkid ft wande coal she wyne it.mp3'),
-(2, 'Asa   360.mp3', 1, 'uploads/Asa   360.mp3'),
-(3, '11   Redemption Song.mp3', 7, 'uploads/11   Redemption Song.mp3'),
-(4, 'Sonnie Badu   Open the flood gates.mp3', 6, 'uploads/Sonnie Badu   Open the flood gates.mp3'),
-(5, '06  Rise Up.m4a', 1, 'uploads/06  Rise Up.m4a'),
-(6, 'Beautiful Nubia  what a feelin.mp3', 1, 'uploads/Beautiful Nubia  what a feelin.mp3'),
-(7, 'don williams till the rivers all run dry.mp3', 5, 'uploads/don williams till the rivers all run dry.mp3'),
-(8, 'Brymo   Dem Dey Go.mp3', 2, 'uploads/Brymo   Dem Dey Go.mp3'),
-(9, 'Brymo   Happy Memories.mp3', 2, 'uploads/Brymo   Happy Memories.mp3'),
-(10, 'Black Eyed Peas Where is the love.mp3', 4, 'uploads/Black Eyed Peas Where is the love.mp3'),
-(12, '2FaceIdibia Raindrops.mp3', 3, 'uploads/2FaceIdibia Raindrops.mp3'),
-(13, 'Adekunle Gold Sade.mp3', 8, 'uploads/Adekunle Gold Sade.mp3');
+(1, '06  Rise Up.m4a', 3, 'uploads/06  Rise Up.m4a');
 
 -- --------------------------------------------------------
 
@@ -122,12 +112,12 @@ ALTER TABLE `playlists`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `playlists`
 --
 ALTER TABLE `playlists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
