@@ -1,9 +1,11 @@
 <?php
+
     // REDIRECT IF USER NOT LOGGED IN 
     session_start();
     if (!$_SESSION['playmobile']) {
         header('location:login.php');
     }
+    error_reporting(0);
 ?>
 
 <?php
@@ -220,7 +222,7 @@ include_once 'dbconfig.php';
     });
 
     $(document).ready(function(){
-
+        $("#upload_page").css('display','block');
     $("#upload_files_btn").click(function(){
         $("#upload_page").css('display','block');
         $("#manage_categories_page").css('display','none');

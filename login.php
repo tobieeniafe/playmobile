@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 	$message = '';
 	session_start();
 	if ($_SESSION['playmobile'] == true) {
